@@ -6,10 +6,10 @@ public class ControlBola : MonoBehaviour
 {
 
     //Asignando a la bola una velocidad constante de bajada
-    Vector3 Velocidad;// = new Vector3 (0f,-10f);
+    Vector3 Velocidad = Vector3.zero;// = new Vector3 (0f,-10f);
 
     Vector3 Movimiento;
-    float tiempoSalto;
+    //float tiempoSalto;
     bool salto = false;
     void Start()
     {
@@ -34,7 +34,6 @@ public class ControlBola : MonoBehaviour
         
         if(Input.GetButtonDown("Fire1"))
         {
-
             Saltar();
         }
         
