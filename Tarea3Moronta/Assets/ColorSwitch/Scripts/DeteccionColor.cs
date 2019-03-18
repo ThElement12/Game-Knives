@@ -26,8 +26,11 @@ public class DeteccionColor : MonoBehaviour
         if(colorObjeto.color == colorCuerpo.color)
         {
             return;
-        }else
+        }
+
+        else
         {
+            GameObject.Find("Main Camera").transform.parent = null;
             Destroy(other.gameObject);
         }
 
