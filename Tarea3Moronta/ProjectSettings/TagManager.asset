@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Obstaculo
   - Lado
+  - Knife
+  - Target
+  - KnifeHit
   layers:
   - Default
   - TransparentFX

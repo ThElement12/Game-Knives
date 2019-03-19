@@ -16,18 +16,19 @@ public class HitSomething : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (gameObject.tag == "Target")
         {
             if (other.gameObject.tag == "Knife")
             {
                 other.gameObject.GetComponent<Shoot>().isShooting = false;
+                other.gameObject.tag = "KnifeHit";
                 other.gameObject.transform.parent = gameObject.transform;
             }
         }
 
-        else if (gameObject.tag == "Knife")
+        else if (gameObject.tag == "KnifeHit")
         {
             if(other.gameObject.tag == "Knife")
             {

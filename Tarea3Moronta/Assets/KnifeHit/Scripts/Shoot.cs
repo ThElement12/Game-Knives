@@ -5,8 +5,9 @@ using UnityEngine;
 public class Shoot : MonoBehaviour
 {
     public bool isShooting = false;
-    Vector3 Velocidad = Vector3.zero;
-    Vector3 position;
+    Vector3 Velocidad = new Vector3(0, 1);
+    Vector3 Aceleracion = new Vector3(0, 1);
+    Vector3 position = Vector3.zero;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,14 +15,14 @@ public class Shoot : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
-        if (!isShooting) 
+        if (isShooting) 
         {
-            Velocidad.y = 3f;
-            position.y += Velocidad.y * Time.deltaTime;
-            gameObject.transform.Translate(position);
+            //Velocidad += Aceleracion;
+            position.y += Velocidad.y * Time.time;
+            gameObject.transform.Translate(position * Time.deltaTime);
         }
 
     }
