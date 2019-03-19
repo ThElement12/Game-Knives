@@ -26,7 +26,11 @@ public class HitSomething : MonoBehaviour
                 other.gameObject.GetComponent<Shoot>().isShooting = false;
                 other.gameObject.tag = "KnifeHit";
                 other.gameObject.transform.parent = gameObject.transform;
-                Instantiate(Knive);
+
+                if (ControlKniveHit.knives > 0)
+                    Instantiate(Knive);
+                else
+                    ControlKniveHit.kniveState = ControlKniveHit.Estate.End;
             }
         }
 
@@ -35,6 +39,7 @@ public class HitSomething : MonoBehaviour
             if(other.gameObject.tag == "Knife")
             {
                 Destroy(GameObject.FindGameObjectWithTag("Target"));
+
             }
         }
     }

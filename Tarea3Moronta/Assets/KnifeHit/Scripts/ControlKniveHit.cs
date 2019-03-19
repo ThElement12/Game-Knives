@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ControlKnive : MonoBehaviour
+public class ControlKniveHit : MonoBehaviour
 {
     GameObject knife;
     public enum Estate
@@ -12,9 +12,11 @@ public class ControlKnive : MonoBehaviour
         End
     }
     public static Estate kniveState;
+    public static int knives;
     // Start is called before the first frame update
     void Start()
     {
+        knives = 50;
         kniveState = Estate.Playing;
     }
 
@@ -24,11 +26,15 @@ public class ControlKnive : MonoBehaviour
         switch (kniveState)
         {
             case Estate.Playing:
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.Space) && knives > 0)
                 {
                     knife = GameObject.FindGameObjectWithTag("Knife");
                     knife.GetComponent<Shoot>().isShooting = true;
+                    knives--;
                 } 
+                break;
+            case Estate.End:
+
                 break;
         }
     }
