@@ -219,6 +219,7 @@ GameObject:
   - component: {fileID: 1245717359}
   - component: {fileID: 1245717358}
   - component: {fileID: 1245717357}
+  - component: {fileID: 1245717361}
   m_Layer: 0
   m_Name: com.pandaz.app.forcequit
   m_TagString: Target
@@ -251,6 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f77f297ed32012c4c82532f8cd9087da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Knive: {fileID: 4805567806816425672, guid: 3dba590a7eb0dc0499611b413ff6b56d, type: 3}
 --- !u!212 &1245717359
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -313,6 +315,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1245717361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245717356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c14066d2da9f93744b58d9959301b549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &468132893123030715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -383,17 +397,27 @@ PrefabInstance:
     - target: {fileID: 4089349700031447122, guid: 3dba590a7eb0dc0499611b413ff6b56d,
         type: 3}
       propertyPath: m_Size.x
-      value: 0.3199997
+      value: 0.23958452
       objectReference: {fileID: 0}
     - target: {fileID: 4089349700031447122, guid: 3dba590a7eb0dc0499611b413ff6b56d,
         type: 3}
       propertyPath: m_Size.y
-      value: 1.541098
+      value: 1.5410978
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089349700031447122, guid: 3dba590a7eb0dc0499611b413ff6b56d,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.19999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089349700031447122, guid: 3dba590a7eb0dc0499611b413ff6b56d,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.0030928685
       objectReference: {fileID: 0}
     - target: {fileID: 4089349700031447122, guid: 3dba590a7eb0dc0499611b413ff6b56d,
         type: 3}
       propertyPath: m_Center.y
-      value: -0.029450499
+      value: -0.029450493
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3dba590a7eb0dc0499611b413ff6b56d, type: 3}

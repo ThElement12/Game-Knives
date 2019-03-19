@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HitSomething : MonoBehaviour
 {
+    public GameObject Knive;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,7 @@ public class HitSomething : MonoBehaviour
                 other.gameObject.GetComponent<Shoot>().isShooting = false;
                 other.gameObject.tag = "KnifeHit";
                 other.gameObject.transform.parent = gameObject.transform;
+                Instantiate(Knive);
             }
         }
 
