@@ -8,6 +8,7 @@ public class ControlKniveHit : MonoBehaviour
     GameObject knife;
     public GameObject Target, newKnife;
     public TextMesh PointTxt;
+    public TextMesh KnivesTxt;
     public enum Estate
     {
         Start,
@@ -48,6 +49,7 @@ public class ControlKniveHit : MonoBehaviour
                     knives = 5;
                     LastHit = false;
                 }
+                KnivesTxt.text = "Cuchillos: " + knives.ToString();
                 PointTxt.text = "Puntos: " + points.ToString();
                 break;
             case Estate.End:
