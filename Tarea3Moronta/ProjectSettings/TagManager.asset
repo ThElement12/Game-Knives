@@ -4,8 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Obstaculo
-  - Lado
   - Knife
   - Target
   - KnifeHit
