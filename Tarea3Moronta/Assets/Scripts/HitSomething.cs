@@ -43,7 +43,8 @@ public class HitSomething : MonoBehaviour
             if(other.gameObject.tag == "Knife")
             {
                 
-                GameObject.FindGameObjectWithTag("Target").GetComponent<TargetRotation>().isDead = true;
+                
+                Destroy(GameObject.FindGameObjectWithTag("Target"));
                 ControlKniveHit.kniveState = ControlKniveHit.Estate.End;
             }
         }
