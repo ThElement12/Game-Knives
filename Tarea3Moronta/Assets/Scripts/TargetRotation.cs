@@ -6,6 +6,8 @@ public class TargetRotation : MonoBehaviour
 {
     Vector3 Velocidad = new Vector3(0, 100);
     int direction;
+    int count = 30;
+    public bool isDead = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,19 +17,14 @@ public class TargetRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        direction = Random.Range(0,1);
-        switch (direction)
+        if (count == 0)
         {
-            case 0:
-                gameObject.transform.Rotate(Vector3.forward * Velocidad.y * Time.deltaTime);
-                break;
-            case 1:
-                gameObject.transform.Rotate(Vector3.forward * -Velocidad.y * Time.deltaTime);
-                break;
-            default:
-                gameObject.transform.Rotate(Vector3.forward * Velocidad.y * Time.deltaTime);
-                break;
+            direction = Random.Range(-1, 1);
+            count = 30;
         }
-        
+        else
+            count--;
+        gameObject.transform.Rotate(Vector3.forward * Velocidad.y * direction * Time.deltaTime);
+
     }
 }
