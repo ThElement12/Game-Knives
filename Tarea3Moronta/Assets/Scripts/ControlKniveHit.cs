@@ -10,6 +10,7 @@ public class ControlKniveHit : MonoBehaviour
     public TextMesh PointTxt;
     //public TextMesh KnivesTxt;
     public GameObject _KnivePunto;
+    public static string playername;
 
     GameObject[] KnivesPuntos = new GameObject[7];
 

@@ -32,6 +32,7 @@ public class MenuControl : MonoBehaviour
                 SceneManager.LoadScene("KnifeHit");
                 break;
             case "Options":
+                GameObject.Find("Main Camera").GetComponent<CanvasController>().showCanvas();
                 break;
             case "Quit":
                 Application.Quit(0);
