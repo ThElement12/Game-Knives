@@ -8,7 +8,7 @@ public class ControlKniveHit : MonoBehaviour
     GameObject knife;
     public GameObject Target, newKnife;
     public TextMesh PointTxt;
-    public TextMesh KnivesTxt;
+    //public TextMesh KnivesTxt;
     public GameObject _KnivePunto;
 
     GameObject[] KnivesPuntos = new GameObject[7];
@@ -60,7 +60,7 @@ public class ControlKniveHit : MonoBehaviour
                     knives = 7;
                     LastHit = false;
                 }
-                KnivesTxt.text = "Cuchillos: " + knives.ToString();
+                //KnivesTxt.text = "Cuchillos: " + knives.ToString();
                 PointTxt.text = "Puntos: " + points.ToString();
                 break;
             case Estate.End:
