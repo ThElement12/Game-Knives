@@ -246,7 +246,6 @@ MonoBehaviour:
   newKnife: {fileID: 4805567806816425672, guid: 3dba590a7eb0dc0499611b413ff6b56d,
     type: 3}
   PointTxt: {fileID: 1030621}
-  KnivesTxt: {fileID: 0}
   _KnivePunto: {fileID: 6095078626036540899, guid: c5db4d686433fea42814303dd7835141,
     type: 3}
 --- !u!20 &519420031
@@ -305,31 +304,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1081024758 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2981486573709034412, guid: 7e74df9a4d43b1f44b3a3352609138aa,
-    type: 3}
-  m_PrefabInstance: {fileID: 2981486574954750144}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1081024764
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1081024758}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d26e3324f5f4e004ca35aecf36a0d6f9, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &468132893123030715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -431,6 +405,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5173706895040510088, guid: 7e74df9a4d43b1f44b3a3352609138aa,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2981486573709034412, guid: 7e74df9a4d43b1f44b3a3352609138aa,
         type: 3}
       propertyPath: m_Name
