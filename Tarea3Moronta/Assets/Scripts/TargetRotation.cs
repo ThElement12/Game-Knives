@@ -8,6 +8,11 @@ public class TargetRotation : MonoBehaviour
     int direction;
     int count = 30;
     public bool isDead = false;
+    Animator anim;
+    private void Awake()
+    {
+       
+    }
     // Start is called before the first frame update
     void Start()
     {
