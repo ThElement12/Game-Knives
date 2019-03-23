@@ -25,7 +25,7 @@ public class ControlKniveHit : MonoBehaviour
     public static int points;
     public static Estate kniveState;
     public static int knives;
-
+    GameObject actualTarget;
     GameObject knivepunto;
     // Start is called before the first frame update
     void Start()
@@ -54,10 +54,20 @@ public class ControlKniveHit : MonoBehaviour
                 if (knives == 0 && LastHit)
                 {
                     cargarKunaiPuntos();
+<<<<<<< HEAD
+                    actualTarget = GameObject.FindGameObjectWithTag("Target");
+                    actualTarget.GetComponent<TargetRotation>().isDead = true;
+                    actualTarget.GetComponent<Animator>().SetBool("isDie", actualTarget.GetComponent<TargetRotation>().isDead);
+                    Destroy(actualTarget, 0.3f);
+                    Invoke("InstantiateNew", 1.5f);
+=======
                     GameObject.FindGameObjectWithTag("Target").GetComponent<TargetRotation>().isDead = true;
-                    Destroy(GameObject.FindGameObjectWithTag("Target"));
+                    GameObject.FindGameObjectWithTag("Target").GetComponent<Animator>().SetBool("isDie", true);
+                    Destroy(GameObject.FindGameObjectWithTag("Target"),0.9f);
+                    
                     Instantiate(Target);
                     Instantiate(newKnife);
+>>>>>>> ba55240fc24294ffaf0714847855d78e5eb2cf3d
                     knives = 7;
                     LastHit = false;
                 }
@@ -83,5 +93,11 @@ public class ControlKniveHit : MonoBehaviour
 
 
 
+    }
+
+    void InstantiateNew()
+    {
+        Instantiate(Target);
+        Instantiate(newKnife);
     }
 }

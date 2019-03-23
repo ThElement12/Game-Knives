@@ -16,7 +16,7 @@ public class TargetRotation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        direction = Random.Range(0, 1);
+        direction = Random.Range(-1, 1);
     }
 
     // Update is called once per frame
