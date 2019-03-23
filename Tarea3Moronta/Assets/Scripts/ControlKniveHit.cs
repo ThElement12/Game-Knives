@@ -54,20 +54,12 @@ public class ControlKniveHit : MonoBehaviour
                 if (knives == 0 && LastHit)
                 {
                     cargarKunaiPuntos();
-<<<<<<< HEAD
+
                     actualTarget = GameObject.FindGameObjectWithTag("Target");
                     actualTarget.GetComponent<TargetRotation>().isDead = true;
                     actualTarget.GetComponent<Animator>().SetBool("isDie", actualTarget.GetComponent<TargetRotation>().isDead);
                     Destroy(actualTarget, 0.3f);
                     Invoke("InstantiateNew", 1.5f);
-=======
-                    GameObject.FindGameObjectWithTag("Target").GetComponent<TargetRotation>().isDead = true;
-                    GameObject.FindGameObjectWithTag("Target").GetComponent<Animator>().SetBool("isDie", true);
-                    Destroy(GameObject.FindGameObjectWithTag("Target"),0.9f);
-                    
-                    Instantiate(Target);
-                    Instantiate(newKnife);
->>>>>>> ba55240fc24294ffaf0714847855d78e5eb2cf3d
                     knives = 7;
                     LastHit = false;
                 }
