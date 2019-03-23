@@ -54,7 +54,7 @@ public class ControlKniveHit : MonoBehaviour
                 if (knives == 0 && LastHit)
                 {
                     cargarKunaiPuntos();
-                    Destroy(GameObject.FindGameObjectWithTag("Target"));
+                    GameObject.FindGameObjectWithTag("Target").GetComponent<TargetRotation>().isDead = true;
                     Instantiate(Target);
                     Instantiate(newKnife);
                     knives = 7;
