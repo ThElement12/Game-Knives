@@ -32,7 +32,6 @@ public class HitSomething : MonoBehaviour
             if(other.gameObject.tag == "Knife")
             {
                 
-                
                 Destroy(GameObject.FindGameObjectWithTag("Target"));
                 ControlKniveHit.kniveState = ControlKniveHit.Estate.End;
             }

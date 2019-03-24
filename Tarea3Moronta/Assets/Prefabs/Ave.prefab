@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 7958599714546379953}
   - component: {fileID: 7958599714546379952}
   - component: {fileID: 7958599714546379959}
-  - component: {fileID: 9071661318875251881}
+  - component: {fileID: 4662867902447892311}
+  - component: {fileID: 981336872065884440}
   m_Layer: 0
   m_Name: Ave
   m_TagString: Untagged
@@ -90,7 +91,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7958599714546379958}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 5.53, y: 2.8899999, z: 0.2}
@@ -114,7 +115,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!54 &9071661318875251881
+--- !u!114 &4662867902447892311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7958599714546379958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54aed9c1bd07a084b999acec0faff14e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moviendose: 1
+--- !u!54 &981336872065884440
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

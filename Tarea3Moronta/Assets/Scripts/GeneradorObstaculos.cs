@@ -5,7 +5,7 @@ using UnityEngine;
 public class GeneradorObstaculos : MonoBehaviour
 {
     public GameObject obstaculo;
-    float tiempoSpawn = 5f;
+    float tiempoSpawn = 100;
 
     GameObject Obstaculo;
 
@@ -20,7 +20,7 @@ public class GeneradorObstaculos : MonoBehaviour
     {
         if(tiempoSpawn <= 0)
         {
-            tiempoSpawn = 5;
+            tiempoSpawn = 100;
             Obstaculo = Instantiate(obstaculo, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + Random.Range(-2.107f,2.108f)), Quaternion.identity);
         }
         else
