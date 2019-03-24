@@ -380,7 +380,7 @@ MonoBehaviour:
   Target: {fileID: 2981486573709034412, guid: 7e74df9a4d43b1f44b3a3352609138aa, type: 3}
   newKnife: {fileID: 4805567806816425672, guid: 3dba590a7eb0dc0499611b413ff6b56d,
     type: 3}
-  PointTxt: {fileID: 1030621}
+  PointTxt: {fileID: 372816384}
   NameTxt: {fileID: 0}
   _KnivePunto: {fileID: 6095078626036540899, guid: c5db4d686433fea42814303dd7835141,
     type: 3}
