@@ -9,6 +9,7 @@ TagManager:
   - KnifeHit
   - Salidas
   - Entradas
+  - Menu Item
   layers:
   - Default
   - TransparentFX

@@ -32,6 +32,7 @@ public class MenuControl : MonoBehaviour
                 SceneManager.LoadScene("KnifeHit");
                 break;
             case "Options":
+                IniciarOpciones();
                 GameObject.Find("Main Camera").GetComponent<CanvasController>().showCanvas();
                 break;
             case "Quit":
@@ -42,15 +43,11 @@ public class MenuControl : MonoBehaviour
                 break;
         }
     }
-    // Start is called before the first frame update
-    void Start()
+    void IniciarOpciones()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        foreach(GameObject item in GameObject.FindGameObjectsWithTag("Menu Item"))
+        {
+            item.SetActive(false);
+        }
     }
 }
