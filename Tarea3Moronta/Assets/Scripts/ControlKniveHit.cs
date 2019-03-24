@@ -7,7 +7,7 @@ public class ControlKniveHit : MonoBehaviour
 {
     GameObject knife;
     public GameObject Target, newKnife;
-    public TextMesh PointTxt;
+    public TextMesh PointTxt, NameTxt;
     //public TextMesh KnivesTxt;
     public GameObject _KnivePunto;
     public static string playername;
@@ -66,6 +66,7 @@ public class ControlKniveHit : MonoBehaviour
                 }
                 //KnivesTxt.text = "Cuchillos: " + knives.ToString();
                 PointTxt.text = "Puntos: " + points.ToString();
+                NameTxt.text = name;
                 break;
             case Estate.End:
                 SceneManager.LoadScene("EndKnifeHit");
