@@ -485,6 +485,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HoverSound: {fileID: 251736443}
   ClickSound: {fileID: 251736442}
+  Fondo: {fileID: 251736448}
 --- !u!102 &251736445
 TextMesh:
   serializedVersion: 3
@@ -1785,16 +1786,16 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 251736441}
-        m_MethodName: SetActive
-        m_Mode: 0
+      - m_Target: {fileID: 251736444}
+        m_MethodName: stopPlay
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
