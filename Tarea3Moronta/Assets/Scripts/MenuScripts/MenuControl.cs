@@ -37,6 +37,9 @@ public class MenuControl : MonoBehaviour
             case "Quit":
                 Application.Quit(0);
                 break;
+            case "Main_Menu":
+                SceneManager.LoadScene("KnifeHitMenu");
+                break;
         }
     }
     // Start is called before the first frame update

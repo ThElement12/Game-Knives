@@ -245,7 +245,7 @@ Transform:
   m_LocalScale: {x: 1, y: 4.2139997, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &372816383
 GameObject:
@@ -336,7 +336,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -380,8 +380,8 @@ MonoBehaviour:
   Target: {fileID: 2981486573709034412, guid: 7e74df9a4d43b1f44b3a3352609138aa, type: 3}
   newKnife: {fileID: 4805567806816425672, guid: 3dba590a7eb0dc0499611b413ff6b56d,
     type: 3}
-  PointTxt: {fileID: 372816384}
-  NameTxt: {fileID: 0}
+  PointTxt: {fileID: 1030621}
+  NameTxt: {fileID: 372816384}
   _KnivePunto: {fileID: 6095078626036540899, guid: c5db4d686433fea42814303dd7835141,
     type: 3}
 --- !u!20 &519420031
@@ -551,7 +551,7 @@ Transform:
   m_LocalScale: {x: 1, y: 4.2139997, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &468132893123030715
 PrefabInstance:

@@ -66,7 +66,7 @@ public class ControlKniveHit : MonoBehaviour
                 }
                 //KnivesTxt.text = "Cuchillos: " + knives.ToString();
                 PointTxt.text = "Puntos: " + points.ToString();
-                NameTxt.text = name;
+                NameTxt.text = playername;
                 break;
             case Estate.End:
                 SceneManager.LoadScene("EndKnifeHit");
