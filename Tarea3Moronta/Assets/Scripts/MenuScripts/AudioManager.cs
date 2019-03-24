@@ -7,8 +7,6 @@ public class AudioManager : MonoBehaviour
     public AudioSource HoverSound, ClickSound, Fondo;
     public static AudioSource _Fondo;
 
-    public static bool play = true;
-
     private void Awake()
     {
         _Fondo = Fondo;
@@ -16,24 +14,12 @@ public class AudioManager : MonoBehaviour
 
     public void PlayHoverSound()
     {
-        if (play)
-        {
-            HoverSound.Play();
-        }
-       
+        HoverSound.Play();
     }
 
     public void PlayClickedSound()
     {
-        if (play)
-        {
-            ClickSound.Play();
-        }
-
-        
+        ClickSound.Play();
     }
-    public static void stopPlay(bool Play)
-    {
-        play = Play;
-    }
+  
 }
