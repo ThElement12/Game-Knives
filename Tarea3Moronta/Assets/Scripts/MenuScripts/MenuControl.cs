@@ -32,7 +32,7 @@ public class MenuControl : MonoBehaviour
                 SceneManager.LoadScene("KnifeHit");
                 break;
             case "Options":
-                IniciarOpciones();
+                IniciarOpciones(false);
                 GameObject.Find("Main Camera").GetComponent<CanvasController>().showCanvas();
                 break;
             case "Quit":
@@ -43,11 +43,12 @@ public class MenuControl : MonoBehaviour
                 break;
         }
     }
-    void IniciarOpciones()
+    public static void IniciarOpciones(bool active)
     {
         foreach(GameObject item in GameObject.FindGameObjectsWithTag("Menu Item"))
         {
-            item.SetActive(false);
+            item.GetComponent<MeshRenderer>().enabled = active;
+            item.GetComponent<BoxCollider>().enabled = active;
         }
     }
 }

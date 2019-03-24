@@ -4,27 +4,36 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public AudioSource HoverSound, ClickSound;
+    public AudioSource HoverSound, ClickSound, Fondo;
+    public static AudioSource _Fondo;
 
-    // Start is called before the first frame update
-    void Start()
+    public static bool play = true;
+
+    private void Awake()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        _Fondo = Fondo;
     }
 
     public void PlayHoverSound()
     {
-        HoverSound.Play();
+        if (play)
+        {
+            HoverSound.Play();
+        }
+       
     }
 
     public void PlayClickedSound()
     {
-        ClickSound.Play();
+        if (play)
+        {
+            ClickSound.Play();
+        }
+
+        
+    }
+    public static void stopPlay(bool Play)
+    {
+        play = Play;
     }
 }
