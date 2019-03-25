@@ -28,7 +28,7 @@ public class TargetRotation : MonoBehaviour
                 count = 50;
             }
             else
-               gameObject.transform.Rotate(Vector3.forward * VelocidadAngular.y * direction * Time.deltaTime);
+               transform.Rotate(Vector3.forward * VelocidadAngular.y * direction * Time.deltaTime);
                count--;
         }
         else if(ControlKniveHit.Dificultad == "Medio")
@@ -39,7 +39,7 @@ public class TargetRotation : MonoBehaviour
                 count = 50;
             }
             else
-                gameObject.transform.Rotate(Vector3.forward * VelocidadAngular.y * direction * Time.deltaTime);
+                transform.Rotate(Vector3.forward * VelocidadAngular.y * direction * Time.deltaTime);
                 count--;
 
         }
@@ -51,14 +51,12 @@ public class TargetRotation : MonoBehaviour
                 count = 50;
             }
             else
-
-                gameObject.transform.parent.transform.Translate(Vector3.right * Velocidad.x * direction * Time.deltaTime);
-                gameObject.transform.Rotate(Vector3.forward * VelocidadAngular.y * direction * Time.deltaTime);
+                transform.parent.transform.Translate(Vector3.right * Velocidad.x * direction * Time.deltaTime);
+                transform.parent.transform.position = new Vector3(Mathf.Clamp(transform.parent.transform.position.x, -8, 8),0,0);
+                transform.Rotate(Vector3.forward * VelocidadAngular.y * direction * Time.deltaTime);
                 count--;
-
-
         }
-        
+
 
 
 

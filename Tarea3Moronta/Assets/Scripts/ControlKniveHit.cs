@@ -99,6 +99,7 @@ public class ControlKniveHit : MonoBehaviour
     void InstantiateNew()
     {
         Instantiate(Target);
+        Target.transform.parent = GameObject.Find("Movimiento").transform;
         Instantiate(newKnife);
     }
 }
