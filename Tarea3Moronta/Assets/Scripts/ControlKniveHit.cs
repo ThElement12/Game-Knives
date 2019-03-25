@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ControlKniveHit : MonoBehaviour
@@ -13,6 +11,7 @@ public class ControlKniveHit : MonoBehaviour
     public static string playername;
     public static string Dificultad;
 
+    
     GameObject[] KnivesPuntos = new GameObject[7];
 
     public enum Estate
@@ -32,6 +31,7 @@ public class ControlKniveHit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         points = 0;
         knives = 7;
         cargarKunaiPuntos();        

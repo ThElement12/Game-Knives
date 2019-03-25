@@ -87,6 +87,10 @@ public class MenuControl : MonoBehaviour
             case "Main_Menu":
                 SceneManager.LoadScene("KnifeHitMenu");
                 break;
+            case "Volver a Jugar":
+                SceneManager.LoadScene("KnifeHit");
+                ControlKniveHit.points = 0;
+                break;
         }
     }
     public static void IniciarOpciones(bool active)
