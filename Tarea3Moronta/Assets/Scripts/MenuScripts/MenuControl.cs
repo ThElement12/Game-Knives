@@ -8,25 +8,33 @@ public class MenuControl : MonoBehaviour
 {
     const float SCALEFACTOR = 1.2f;
     AudioManager _audioManager;
-    static GameObject[] menuItems;
-    GameObject Sonido;
+    static GameObject menuItems;
+    static GameObject Sonido, Facil, Medio, Dificil;
 
-    bool playSound = true;
+    static bool playSound = true;
 
     private void Awake()
     {
       _audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
-        menuItems = GameObject.FindGameObjectsWithTag("Menu Item");
+        menuItems = GameObject.Find("MenuItems");
         Sonido = GameObject.Find("Sonido");
+        Facil = GameObject.Find("Facil");
+        Medio = GameObject.Find("Medio");
+        Dificil = GameObject.Find("Dificil");
+     
+        
     }
   
     private void Update()
     {
-
-        if (Sonido.GetComponent<Toggle>().isOn)
-            playSound = true;
-        else
-            playSound = false;
+        if(SceneManager.GetActiveScene().name == "KnifeHitMenu")
+        {
+            if (Sonido.GetComponent<Toggle>().isOn)
+               playSound = true;
+            else
+               playSound = false;
+        }
+        
 
         if (!playSound)
         {
@@ -62,7 +70,11 @@ public class MenuControl : MonoBehaviour
         {
             
             case "Play":
+                SeleccionDificultad();
+                GameObject.Find("Main Camera").GetComponent<CanvasController>().showCanvas(true);
                 SceneManager.LoadScene("KnifeHit");
+
+                
                 break;
             case "Options":
                 IniciarOpciones(false);
@@ -78,10 +90,17 @@ public class MenuControl : MonoBehaviour
         }
     }
     public static void IniciarOpciones(bool active)
-    {   
-        foreach(GameObject item in menuItems)
-        {
-            item.SetActive(active);
-        }
+    {
+        menuItems.SetActive(active);
+    }
+    public void SeleccionDificultad()
+    {
+        if (Facil.GetComponent<Toggle>().isOn)
+            ControlKniveHit.Dificultad = "Facil";
+
+        else if (Medio.GetComponent<Toggle>().isOn)
+            ControlKniveHit.Dificultad = "Medio";
+        else
+            ControlKniveHit.Dificultad = "Dificil";
     }
 }

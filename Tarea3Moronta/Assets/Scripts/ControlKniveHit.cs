@@ -11,6 +11,7 @@ public class ControlKniveHit : MonoBehaviour
     //public TextMesh KnivesTxt;
     public GameObject _KnivePunto;
     public static string playername;
+    public static string Dificultad;
 
     GameObject[] KnivesPuntos = new GameObject[7];
 
@@ -44,6 +45,7 @@ public class ControlKniveHit : MonoBehaviour
         switch (kniveState)
         {
             case Estate.Playing:
+                
                 if (Input.GetKeyDown(KeyCode.Space) && knives > 0)
                 {
                     knife = GameObject.FindGameObjectWithTag("Knife");

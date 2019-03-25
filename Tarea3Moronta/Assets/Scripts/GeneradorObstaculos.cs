@@ -12,20 +12,29 @@ public class GeneradorObstaculos : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (ControlKniveHit.Dificultad == "Medio")
+            tiempoSpawn = 100;
+        else if (ControlKniveHit.Dificultad == "Dificil")
+            tiempoSpawn = 50;
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(tiempoSpawn <= 0)
+        if(ControlKniveHit.Dificultad == "Medio" || ControlKniveHit.Dificultad == "Dificil")
         {
-            tiempoSpawn = 100;
-            Obstaculo = Instantiate(obstaculo, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + Random.Range(-2.107f,2.108f)), Quaternion.identity);
+            if(tiempoSpawn <= 0)
+            {
+             tiempoSpawn = 100;
+             Obstaculo = Instantiate(obstaculo, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + Random.Range(-2.107f,2.108f)), Quaternion.identity);
+            }
+            else
+            {
+             tiempoSpawn--;
+            }
         }
-        else
-        {
-            tiempoSpawn--;
-        }
+        
     }
 }
