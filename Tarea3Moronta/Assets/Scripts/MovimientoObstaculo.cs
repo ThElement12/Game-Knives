@@ -35,6 +35,10 @@ public class MovimientoObstaculo : MonoBehaviour
             gameObject.GetComponent<Animator>().SetBool("IsDead", true);
             Invoke("destruir", 0.5f);
         }
+        else if(other.gameObject.tag == "Salidas")
+        {
+            Destroy(gameObject);
+        }
     }
     void destruir()
     {

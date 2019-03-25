@@ -10,6 +10,7 @@ TagManager:
   - Salidas
   - Entradas
   - Menu Item
+  - Zona Muerta
   layers:
   - Default
   - TransparentFX

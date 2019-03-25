@@ -12,7 +12,7 @@ public class ControlKniveHit : MonoBehaviour
     public static string Dificultad;
 
     
-    GameObject[] KnivesPuntos = new GameObject[7];
+    static GameObject[] KnivesPuntos = new GameObject[7];
 
     public enum Estate
     {
@@ -46,12 +46,11 @@ public class ControlKniveHit : MonoBehaviour
         {
             case Estate.Playing:
                 
-                if (Input.GetKeyDown(KeyCode.Space) && knives > 0)
+                if (Input.GetKeyDown(KeyCode.Space) && knives > 0 )
                 {
                     knife = GameObject.FindGameObjectWithTag("Knife");
-                    knife.GetComponent<Shoot>().isShooting = true;
-                    Destroy(KnivesPuntos[knives-1].gameObject);
-                    knives--;
+                    if(knife != null)
+                     knife.GetComponent<Shoot>().isShooting = true;
                 }
 
                 if (knives == 0 && LastHit)
@@ -98,8 +97,14 @@ public class ControlKniveHit : MonoBehaviour
 
     void InstantiateNew()
     {
-        Instantiate(Target);
-        Target.transform.parent = GameObject.Find("Movimiento").transform;
+        
+        Instantiate(Target, GameObject.Find("Movimiento").transform);
+       // Target.transform.SetParent();
         Instantiate(newKnife);
+    }
+    public static void GastarAmmo()
+    {
+        Destroy(KnivesPuntos[knives - 1].gameObject);
+        knives--;
     }
 }

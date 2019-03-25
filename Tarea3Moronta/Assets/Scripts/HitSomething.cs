@@ -5,6 +5,8 @@ using UnityEngine;
 public class HitSomething : MonoBehaviour
 {
     public GameObject Knive;
+    
+
 
     private void OnTriggerStay(Collider other)
     {
@@ -12,10 +14,13 @@ public class HitSomething : MonoBehaviour
         {
             if (other.gameObject.tag == "Knife")
             {
+                GetComponent<AudioSource>().Play();
                 other.gameObject.GetComponent<Shoot>().isShooting = false;
                 other.gameObject.tag = "KnifeHit";
                 other.gameObject.transform.parent = gameObject.transform;
+                ControlKniveHit.GastarAmmo();
                 ControlKniveHit.points++;
+
                 if (ControlKniveHit.knives > 0)
                 {
                     Instantiate(Knive);
@@ -35,6 +40,13 @@ public class HitSomething : MonoBehaviour
                 Destroy(GameObject.FindGameObjectWithTag("Target"));
                 ControlKniveHit.kniveState = ControlKniveHit.Estate.End;
             }
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Zona Muerta")
+        {
+            ControlKniveHit.kniveState = ControlKniveHit.Estate.End;
         }
     }
 }
