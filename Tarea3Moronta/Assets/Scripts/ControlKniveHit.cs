@@ -10,8 +10,6 @@ public class ControlKniveHit : MonoBehaviour
     public GameObject _KnivePunto;
     public static string playername;
     public static string Dificultad;
-
-    
     static GameObject[] KnivesPuntos = new GameObject[7];
 
     public enum Estate

@@ -9,6 +9,8 @@ public class SaveStats : MonoBehaviour
 {
     string rutaXML;
     public static PlayerStats CurrentGame;
+
+    public static List<PlayerStats> playersStats = new List<PlayerStats>();
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +19,7 @@ public class SaveStats : MonoBehaviour
         CurrentGame.PlayerName = ControlKniveHit.playername;
         CurrentGame.Points = ControlKniveHit.points;
         Debug.Log(rutaXML);
+        playersStats.Capacity = 10;
     }
 
     // Update is called once per frame
@@ -48,7 +51,14 @@ public class SaveStats : MonoBehaviour
         {
             CurrentGame = (PlayerStats)dcSerializer.ReadObject(fstream);
         }
-
-
+    }
+    public void crearHighStore()
+    {
+        if (playersStats.Count < 10)
+        {
+            playersStats.Add(CurrentGame);
+            playersStats.Sort(new ClassComparer());
+        }
+      
     }
 }
