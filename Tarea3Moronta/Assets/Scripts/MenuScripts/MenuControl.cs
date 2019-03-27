@@ -11,6 +11,7 @@ public class MenuControl : MonoBehaviour
     AudioManager _audioManager;
     static GameObject menuItems;
     static GameObject Sonido, Facil, Medio, Dificil;
+    GameObject MainCamera;
 
     static bool playSound = true;
 
@@ -22,6 +23,7 @@ public class MenuControl : MonoBehaviour
         Facil = GameObject.Find("Facil");
         Medio = GameObject.Find("Medio");
         Dificil = GameObject.Find("Dificil");
+        MainCamera = GameObject.Find("Main Camera");
     }
   
     private void Update()
@@ -70,12 +72,12 @@ public class MenuControl : MonoBehaviour
             
             case "Play":
                 SeleccionDificultad();
-                GameObject.Find("Main Camera").GetComponent<CanvasController>().showCanvas(true);
+                MainCamera.GetComponent<CanvasController>().showCanvas(true);
                 SceneManager.LoadScene("KnifeHit");
                 break;
             case "Options":
                 IniciarOpciones(false);
-                GameObject.Find("Main Camera").GetComponent<CanvasController>().showCanvas();
+                MainCamera.GetComponent<CanvasController>().showCanvas();
                 gameObject.transform.localScale /= SCALEFACTOR;
                 break;
             case "Quit":
@@ -93,15 +95,21 @@ public class MenuControl : MonoBehaviour
                 break;
             case "FacilPoints":
                 IniciarOpciones(false);
-                SeleccionDificultad();
+                mostrarScore();
                 break;
             case "MedioPoints":
                 IniciarOpciones(false);
-                SeleccionDificultad();
+                mostrarScore();
                 break;
             case "DificilPoints":
                 IniciarOpciones(false);
-                SeleccionDificultad();
+                mostrarScore();
+                break;
+            case "Go Back":
+                if (menuItems.active)
+                    SceneManager.LoadScene("KnifeHitMenu");
+                else
+                    IniciarOpciones(true);
                 break;
         }
     }
