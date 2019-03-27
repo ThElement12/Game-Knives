@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Assets.Scripts;
 
 public class MenuControl : MonoBehaviour
 {
@@ -21,8 +22,6 @@ public class MenuControl : MonoBehaviour
         Facil = GameObject.Find("Facil");
         Medio = GameObject.Find("Medio");
         Dificil = GameObject.Find("Dificil");
-     
-        
     }
   
     private void Update()
@@ -73,8 +72,6 @@ public class MenuControl : MonoBehaviour
                 SeleccionDificultad();
                 GameObject.Find("Main Camera").GetComponent<CanvasController>().showCanvas(true);
                 SceneManager.LoadScene("KnifeHit");
-
-                
                 break;
             case "Options":
                 IniciarOpciones(false);
@@ -91,6 +88,21 @@ public class MenuControl : MonoBehaviour
                 SceneManager.LoadScene("KnifeHit");
                 ControlKniveHit.points = 0;
                 break;
+            case "HighScore":
+                SceneManager.LoadScene("Puntajes");
+                break;
+            case "FacilPoints":
+                IniciarOpciones(false);
+                SeleccionDificultad();
+                break;
+            case "MedioPoints":
+                IniciarOpciones(false);
+                SeleccionDificultad();
+                break;
+            case "DificilPoints":
+                IniciarOpciones(false);
+                SeleccionDificultad();
+                break;
         }
     }
     public static void IniciarOpciones(bool active)
@@ -106,5 +118,34 @@ public class MenuControl : MonoBehaviour
             ControlKniveHit.Dificultad = "Medio";
         else
             ControlKniveHit.Dificultad = "Dificil";
+    }
+    public void mostrarScore()
+    {
+        
+        if(gameObject.name == "FacilPoints")
+        {
+            foreach(PlayerStats player in SaveStats.playersStatsFacil)
+            {
+                GameObject.Find("Nombres").GetComponent<TextMesh>().text = player.PlayerName + "\n";
+                GameObject.Find("Puntajes").GetComponent<TextMesh>().text = player.Points.ToString() + "\n";
+            }
+        }
+        else if(gameObject.name == "MedioPoints")
+        {
+            foreach (PlayerStats player in SaveStats.playersStatsMedio)
+            {
+               GameObject.Find("Nombres").GetComponent<TextMesh>().text = player.PlayerName + "\n";
+               GameObject.Find("Puntajes").GetComponent<TextMesh>().text = player.Points.ToString() + "\n";
+            }
+        }
+        else if(gameObject.name == "DificilPoints")
+        {
+            foreach (PlayerStats player in SaveStats.playersStatsDificil)
+            {
+                GameObject.Find("Nombres").GetComponent<TextMesh>().text = player.PlayerName + "\n";
+                GameObject.Find("Puntajes").GetComponent<TextMesh>().text = player.Points.ToString() + "\n";
+
+            }
+        }
     }
 }

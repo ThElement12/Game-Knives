@@ -14,5 +14,7 @@ namespace Assets.Scripts
         public string PlayerName { get; set; }
         [DataMember]
         public int Points { get; set; }
+        [DataMember]
+        public string Dificultad { get; set; }
     }
 }
