@@ -11,6 +11,8 @@ TagManager:
   - Entradas
   - Menu Item
   - Zona Muerta
+  - PowerUp
+  - Obstacle
   layers:
   - Default
   - TransparentFX
