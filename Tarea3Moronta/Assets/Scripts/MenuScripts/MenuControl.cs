@@ -17,6 +17,7 @@ public class MenuControl : MonoBehaviour
 
     private void Awake()
     {
+        
       _audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         menuItems = GameObject.Find("MenuItems");
         Sonido = GameObject.Find("Sonido");
@@ -24,6 +25,11 @@ public class MenuControl : MonoBehaviour
         Medio = GameObject.Find("Medio");
         Dificil = GameObject.Find("Dificil");
         MainCamera = GameObject.Find("Main Camera");
+        if(SceneManager.GetActiveScene().name == "KnifeHitMenu")
+        { 
+            SaveStats.LoadState();
+        }
+        
     }
   
     private void Update()
@@ -95,18 +101,18 @@ public class MenuControl : MonoBehaviour
                 break;
             case "FacilPoints":
                 IniciarOpciones(false);
-                mostrarScore();
+                MostrarScore();
                 break;
             case "MedioPoints":
                 IniciarOpciones(false);
-                mostrarScore();
+                MostrarScore();
                 break;
             case "DificilPoints":
                 IniciarOpciones(false);
-                mostrarScore();
+                MostrarScore();
                 break;
             case "Go Back":
-                if (menuItems.active)
+                if (menuItems.activeSelf)
                     SceneManager.LoadScene("KnifeHitMenu");
                 else
                     IniciarOpciones(true);
@@ -127,7 +133,7 @@ public class MenuControl : MonoBehaviour
         else
             ControlKniveHit.Dificultad = "Dificil";
     }
-    public void mostrarScore()
+    public void MostrarScore()
     {
         
         if(gameObject.name == "FacilPoints")

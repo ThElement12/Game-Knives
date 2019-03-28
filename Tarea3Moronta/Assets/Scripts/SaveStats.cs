@@ -8,53 +8,81 @@ using System.Linq;
 
 public class SaveStats : MonoBehaviour
 {
-    string rutaXML;
+    static string rutaXMLFacil, rutaXMLMedio, rutaXMLDificil;
     public static PlayerStats CurrentGame;
+    bool guardado = false;
 
     public static List<PlayerStats> playersStatsDificil = new List<PlayerStats>();
     public static List<PlayerStats> playersStatsMedio = new List<PlayerStats>();
     public static List<PlayerStats> playersStatsFacil = new List<PlayerStats>();
+
+
     // Start is called before the first frame update
     void Start()
     {
         CurrentGame = new PlayerStats();
-        rutaXML = Application.persistentDataPath + "/HighScores.xml";
+        rutaXMLFacil = Application.persistentDataPath + "/HighScoresFacil.xml";
+        rutaXMLMedio = Application.persistentDataPath + "/HighScoresMedio.xml";
+        rutaXMLDificil = Application.persistentDataPath + "/HighScoresDificil.xml";
         CurrentGame.PlayerName = ControlKniveHit.playername;
         CurrentGame.Points = ControlKniveHit.points;
-        Debug.Log(rutaXML);
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (ControlKniveHit.kniveState == ControlKniveHit.Estate.End)
+        if (ControlKniveHit.kniveState == ControlKniveHit.Estate.End && !guardado)
         {
+            CrearHighStore();
             SaveState();
+            guardado = true;
         }
     }
 
-    public void SaveState()
+    public static void SaveState()
     {
-        DataContractSerializer dcSerializer = new DataContractSerializer(typeof(PlayerStats));
+        DataContractSerializer dcSerializer = new DataContractSerializer(typeof(List<PlayerStats>));
 
-        using (FileStream fstream = new FileStream(rutaXML, FileMode.Create))
+        using (FileStream fstream = new FileStream(rutaXMLFacil, FileMode.Create))
         {
-            dcSerializer.WriteObject(fstream, CurrentGame);
+            dcSerializer.WriteObject(fstream, playersStatsFacil);
+            
         }
+        using (FileStream fstream = new FileStream(rutaXMLMedio, FileMode.Create))
+        {
+            dcSerializer.WriteObject(fstream, playersStatsMedio);
 
+        }
+        using (FileStream fstream = new FileStream(rutaXMLDificil, FileMode.Create))
+        {
+            dcSerializer.WriteObject(fstream, playersStatsDificil);
 
+        }
+        
     }
 
-    public void LoadState()
+    public static void LoadState()
     {
-        DataContractSerializer dcSerializer = new DataContractSerializer(typeof(PlayerStats));
+        DataContractSerializer dcSerializer = new DataContractSerializer(typeof(List<PlayerStats>));
 
-        using (FileStream fstream = new FileStream(rutaXML, FileMode.Open))
+        using (FileStream fstream = new FileStream(rutaXMLFacil, FileMode.Open))
         {
-            CurrentGame = (PlayerStats)dcSerializer.ReadObject(fstream);
+            playersStatsFacil = (List<PlayerStats>)dcSerializer.ReadObject(fstream);
+            
+        }
+        using (FileStream fstream = new FileStream(rutaXMLMedio, FileMode.Open))
+        {
+            playersStatsMedio = (List<PlayerStats>)dcSerializer.ReadObject(fstream);
+
+        }
+        using (FileStream fstream = new FileStream(rutaXMLDificil, FileMode.Open))
+        {
+            playersStatsDificil = (List<PlayerStats>)dcSerializer.ReadObject(fstream);
+
         }
     }
-    public void crearHighStore()
+    public void CrearHighStore()
     {
         switch (CurrentGame.Dificultad)
         {
