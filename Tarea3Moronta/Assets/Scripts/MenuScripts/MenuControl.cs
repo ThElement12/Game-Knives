@@ -109,14 +109,17 @@ public class MenuControl : MonoBehaviour
             case "FacilPoints":
                 IniciarOpciones(false);
                 MostrarScore();
+                gameObject.transform.localScale /= SCALEFACTOR;
                 break;
             case "MedioPoints":
                 IniciarOpciones(false);
                 MostrarScore();
+                gameObject.transform.localScale /= SCALEFACTOR;
                 break;
             case "DificilPoints":
                 IniciarOpciones(false);
                 MostrarScore();
+                gameObject.transform.localScale /= SCALEFACTOR;
                 break;
             case "Go Back":
                 if (menuItems.activeSelf)
@@ -152,8 +155,8 @@ public class MenuControl : MonoBehaviour
         {
             foreach(PlayerStats player in SaveStats.playersStatsFacil)
             {
-                Nombre.text = player.PlayerName + "\n";
-                Score.text = player.Points.ToString() + "\n";
+                Nombre.text += player.PlayerName + "\n";
+                Score.text += player.Points.ToString() + "\n";
                 Debug.Log(player.PlayerName);
             }
         }
@@ -161,16 +164,16 @@ public class MenuControl : MonoBehaviour
         {
             foreach (PlayerStats player in SaveStats.playersStatsMedio)
             {
-               Nombre.text = player.PlayerName + "\n";
-               Score.text = player.Points.ToString() + "\n";
+               Nombre.text += player.PlayerName + "\n";
+               Score.text += player.Points.ToString() + "\n";
             }
         }
         else if(gameObject.name == "DificilPoints")
         {
             foreach (PlayerStats player in SaveStats.playersStatsDificil)
             {
-                Nombre.text = player.PlayerName + "\n";
-                Score.text = player.Points.ToString() + "\n";
+                Nombre.text += player.PlayerName + "\n";
+                Score.text += player.Points.ToString() + "\n";
 
             }
         }
