@@ -65,20 +65,25 @@ public class SaveStats : MonoBehaviour
     public static void LoadState()
     {
         DataContractSerializer dcSerializer = new DataContractSerializer(typeof(List<PlayerStats>));
+        Debug.Log("Cargo");
 
         using (FileStream fstream = new FileStream(rutaXMLFacil, FileMode.Open))
         {
-            playersStatsFacil = (List<PlayerStats>)dcSerializer.ReadObject(fstream);
+           
+            if(fstream != null)
+                playersStatsFacil = (List<PlayerStats>)dcSerializer.ReadObject(fstream);
             
         }
         using (FileStream fstream = new FileStream(rutaXMLMedio, FileMode.Open))
         {
-            playersStatsMedio = (List<PlayerStats>)dcSerializer.ReadObject(fstream);
+            if (fstream != null)
+                playersStatsMedio = (List<PlayerStats>)dcSerializer.ReadObject(fstream);
 
         }
         using (FileStream fstream = new FileStream(rutaXMLDificil, FileMode.Open))
         {
-            playersStatsDificil = (List<PlayerStats>)dcSerializer.ReadObject(fstream);
+            if (fstream != null)
+                playersStatsDificil = (List<PlayerStats>)dcSerializer.ReadObject(fstream);
 
         }
     }
