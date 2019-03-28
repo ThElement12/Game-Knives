@@ -5,16 +5,20 @@ using System.IO;
 using System.Runtime.Serialization;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class SaveStats : MonoBehaviour
 {
     static string rutaXMLFacil, rutaXMLMedio, rutaXMLDificil;
     public static PlayerStats CurrentGame;
-    bool guardado = false;
+    public static bool Guardado = false;
+    public static bool Cargado = false;
 
     public static List<PlayerStats> playersStatsDificil = new List<PlayerStats>();
     public static List<PlayerStats> playersStatsMedio = new List<PlayerStats>();
     public static List<PlayerStats> playersStatsFacil = new List<PlayerStats>();
+
+    
 
 
     // Start is called before the first frame update
@@ -26,17 +30,24 @@ public class SaveStats : MonoBehaviour
         rutaXMLDificil = Application.persistentDataPath + "/HighScoresDificil.xml";
         CurrentGame.PlayerName = ControlKniveHit.playername;
         CurrentGame.Points = ControlKniveHit.points;
+        CurrentGame.Dificultad = ControlKniveHit.Dificultad;
        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (ControlKniveHit.kniveState == ControlKniveHit.Estate.End && !guardado)
+        
+        if (SceneManager.GetActiveScene().name == "EndKnifeHit" && !Guardado)
         {
             CrearHighStore();
             SaveState();
-            guardado = true;
+            Guardado = true;
+        }
+        else if (SceneManager.GetActiveScene().name == "KnifeHitMenu" && !Cargado)
+        {
+            LoadState();
+            Cargado = true;
         }
     }
 
@@ -67,71 +78,88 @@ public class SaveStats : MonoBehaviour
         DataContractSerializer dcSerializer = new DataContractSerializer(typeof(List<PlayerStats>));
         Debug.Log("Cargo");
 
-        using (FileStream fstream = new FileStream(rutaXMLFacil, FileMode.Open))
+        try
         {
-           
-            if(fstream != null)
+            using (FileStream fstream = new FileStream(rutaXMLFacil, FileMode.Open))
+            {
+
+
                 playersStatsFacil = (List<PlayerStats>)dcSerializer.ReadObject(fstream);
+
+            }
             
         }
-        using (FileStream fstream = new FileStream(rutaXMLMedio, FileMode.Open))
+        catch (FileNotFoundException)
         {
-            if (fstream != null)
+
+           
+        }
+        try
+        {
+            using (FileStream fstream = new FileStream(rutaXMLMedio, FileMode.Open))
+            {
+
                 playersStatsMedio = (List<PlayerStats>)dcSerializer.ReadObject(fstream);
 
-        }
-        using (FileStream fstream = new FileStream(rutaXMLDificil, FileMode.Open))
-        {
-            if (fstream != null)
-                playersStatsDificil = (List<PlayerStats>)dcSerializer.ReadObject(fstream);
+            }
+
 
         }
+        catch (FileNotFoundException)
+        {
+
+          
+        }
+        try
+        {
+            using (FileStream fstream = new FileStream(rutaXMLDificil, FileMode.Open))
+            {
+
+                playersStatsDificil = (List<PlayerStats>)dcSerializer.ReadObject(fstream);
+
+            }
+        }
+        catch (FileNotFoundException)
+        {
+
+            
+        }
+        
+       
     }
     public void CrearHighStore()
     {
         switch (CurrentGame.Dificultad)
         {
             case "Facil":
-                if (playersStatsFacil[playersStatsFacil.Count - 1].Points < CurrentGame.Points || playersStatsFacil.Count < 10)
+                playersStatsFacil.Add(CurrentGame);
+                playersStatsFacil = playersStatsFacil.OrderByDescending(o => o.Points).ToList();
+
+                if (playersStatsFacil.Count > 10)
                 {
-
-                    playersStatsFacil.Add(CurrentGame);
-                    playersStatsFacil = playersStatsFacil.OrderByDescending(o => o.Points).ToList();
-
-                    if (playersStatsFacil.Count > 10)
-                    {
-                        playersStatsFacil.Remove(playersStatsFacil[playersStatsFacil.Count]);
-                    }
+                    playersStatsFacil.Remove(playersStatsFacil[playersStatsFacil.Count]);
                 }
+                Debug.Log(playersStatsFacil.Count);
                 break;
             case "Medio":
-                if (playersStatsMedio[playersStatsMedio.Count - 1].Points < CurrentGame.Points || playersStatsMedio.Count < 10)
+                playersStatsMedio.Add(CurrentGame);
+                playersStatsMedio = playersStatsMedio.OrderByDescending(o => o.Points).ToList();
+
+                if (playersStatsMedio.Count > 10)
                 {
-
-                    playersStatsMedio.Add(CurrentGame);
-                    playersStatsMedio = playersStatsMedio.OrderByDescending(o => o.Points).ToList();
-
-                    if (playersStatsMedio.Count > 10)
-                    {
-                        playersStatsMedio.Remove(playersStatsMedio[playersStatsMedio.Count]);
-                    }
+                    playersStatsMedio.Remove(playersStatsMedio[playersStatsMedio.Count]);
                 }
                 break;
 
             case "Dificil":
-                if (playersStatsDificil[playersStatsDificil.Count - 1].Points < CurrentGame.Points || playersStatsDificil.Count < 10)
+                playersStatsDificil.Add(CurrentGame);
+                playersStatsDificil = playersStatsDificil.OrderByDescending(o => o.Points).ToList();
+                if (playersStatsDificil.Count > 10)
                 {
-
-                    playersStatsDificil.Add(CurrentGame);
-                    playersStatsDificil = playersStatsDificil.OrderByDescending(o => o.Points).ToList();
-
-                    if (playersStatsDificil.Count > 10)
-                    {
-                        playersStatsDificil.Remove(playersStatsDificil[playersStatsDificil.Count]);
-                    }
+                    playersStatsDificil.Remove(playersStatsDificil[playersStatsDificil.Count]);
                 }
 
-                break;
+              break;
         }    
     }
 }

@@ -12,9 +12,9 @@ public class MenuControl : MonoBehaviour
     static GameObject menuItems;
     static GameObject Sonido, Facil, Medio, Dificil;
     GameObject MainCamera;
+   TextMesh Score, Nombre;
 
     static bool playSound = true;
-
     private void Awake()
     {
         
@@ -25,10 +25,14 @@ public class MenuControl : MonoBehaviour
         Medio = GameObject.Find("Medio");
         Dificil = GameObject.Find("Dificil");
         MainCamera = GameObject.Find("Main Camera");
-        if(SceneManager.GetActiveScene().name == "KnifeHitMenu")
-        { 
-            SaveStats.LoadState();
+        if(SceneManager.GetActiveScene().name == "Puntajes")
+        {
+            Score = GameObject.Find("Puntajes").GetComponent<TextMesh>();
+            Nombre = GameObject.Find("Nombres").GetComponent<TextMesh>();
+
         }
+            
+        
         
     }
   
@@ -40,6 +44,8 @@ public class MenuControl : MonoBehaviour
                playSound = true;
             else
                playSound = false;
+
+            SaveStats.Guardado = false;
         }
         
 
@@ -74,8 +80,7 @@ public class MenuControl : MonoBehaviour
            _audioManager.PlayClickedSound();
 
         switch (gameObject.name)
-        {
-            
+        { 
             case "Play":
                 SeleccionDificultad();
                 MainCamera.GetComponent<CanvasController>().showCanvas(true);
@@ -91,9 +96,11 @@ public class MenuControl : MonoBehaviour
                 break;
             case "Main_Menu":
                 SceneManager.LoadScene("KnifeHitMenu");
+                
                 break;
             case "Volver a Jugar":
                 SceneManager.LoadScene("KnifeHit");
+                SaveStats.Guardado = false;
                 ControlKniveHit.points = 0;
                 break;
             case "HighScore":
@@ -115,7 +122,12 @@ public class MenuControl : MonoBehaviour
                 if (menuItems.activeSelf)
                     SceneManager.LoadScene("KnifeHitMenu");
                 else
-                    IniciarOpciones(true);
+                {
+                    Nombre.text = "";
+                    Score.text = "";
+                   IniciarOpciones(true);
+                }
+                    
                 break;
         }
     }
@@ -140,24 +152,25 @@ public class MenuControl : MonoBehaviour
         {
             foreach(PlayerStats player in SaveStats.playersStatsFacil)
             {
-                GameObject.Find("Nombres").GetComponent<TextMesh>().text = player.PlayerName + "\n";
-                GameObject.Find("Puntajes").GetComponent<TextMesh>().text = player.Points.ToString() + "\n";
+                Nombre.text = player.PlayerName + "\n";
+                Score.text = player.Points.ToString() + "\n";
+                Debug.Log(player.PlayerName);
             }
         }
         else if(gameObject.name == "MedioPoints")
         {
             foreach (PlayerStats player in SaveStats.playersStatsMedio)
             {
-               GameObject.Find("Nombres").GetComponent<TextMesh>().text = player.PlayerName + "\n";
-               GameObject.Find("Puntajes").GetComponent<TextMesh>().text = player.Points.ToString() + "\n";
+               Nombre.text = player.PlayerName + "\n";
+               Score.text = player.Points.ToString() + "\n";
             }
         }
         else if(gameObject.name == "DificilPoints")
         {
             foreach (PlayerStats player in SaveStats.playersStatsDificil)
             {
-                GameObject.Find("Nombres").GetComponent<TextMesh>().text = player.PlayerName + "\n";
-                GameObject.Find("Puntajes").GetComponent<TextMesh>().text = player.Points.ToString() + "\n";
+                Nombre.text = player.PlayerName + "\n";
+                Score.text = player.Points.ToString() + "\n";
 
             }
         }
