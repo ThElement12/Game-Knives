@@ -27,24 +27,44 @@ public class MovimientoObstaculo : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Knife")
+        if (tag == "Obstacle")
         {
 
-            other.gameObject.GetComponent<Shoot>().isShooting = false;
-            moviendose = false;
-            gameObject.GetComponent<Animator>().SetBool("IsDead", true);
-            Invoke("destruir", 0.5f);
+            if (other.gameObject.tag == "Knife")
+            {
+
+                other.gameObject.GetComponent<Shoot>().isShooting = false;
+                moviendose = false;
+                gameObject.GetComponent<Animator>().SetBool("IsDead", true);
+                Invoke("destruir", 0.5f);
+            }
         }
-        else if(other.gameObject.tag == "Salidas")
+        if(tag == "PowerUp")
+        {
+            if(other.gameObject.tag == "Knife")
+            {
+                HitSomething.pointPLus = 2;
+                ControlKniveHit.powercount += 2;
+                //other.gameObject.GetComponent<Shoot>().isShooting = false;
+                moviendose = false;
+                //gameObject.GetComponent<Animator>().SetBool("IsDead", true);
+                Destroy(other.gameObject);
+            //Invoke("destruir", 0.5f);
+            }
+        }
+
+        if (other.gameObject.tag == "Salidas")
         {
             Destroy(gameObject);
         }
     }
     void destruir()
     {
-
-        Destroy(GameObject.FindGameObjectWithTag("Target"));
-        ControlKniveHit.kniveState = ControlKniveHit.Estate.End;
+        if (tag == "Obstacle")
+        {
+            Destroy(GameObject.FindGameObjectWithTag("Target"));
+            ControlKniveHit.kniveState = ControlKniveHit.Estate.End;
+        }
     }
 
 

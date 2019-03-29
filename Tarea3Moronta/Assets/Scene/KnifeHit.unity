@@ -787,6 +787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstaculo: {fileID: 7958599714546379958, guid: 2906f955f2ec46340bb30c893d380b86,
     type: 3}
+  powerup: {fileID: 7509176582543620046, guid: 043b5c590eb9b7645a7057f052b42294, type: 3}
 --- !u!1001 &468132893123030715
 PrefabInstance:
   m_ObjectHideFlags: 0

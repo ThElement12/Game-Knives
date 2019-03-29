@@ -5,7 +5,7 @@ using UnityEngine;
 public class HitSomething : MonoBehaviour
 {
     public GameObject Knive;
-    
+    public static int pointPLus = 1;
 
 
     private void OnTriggerStay(Collider other)
@@ -21,7 +21,7 @@ public class HitSomething : MonoBehaviour
                 other.gameObject.tag = "KnifeHit";
                 other.gameObject.transform.parent = gameObject.transform;
                 ControlKniveHit.GastarAmmo();
-                ControlKniveHit.points++;
+                ControlKniveHit.points += pointPLus;
 
                 if (ControlKniveHit.knives > 0)
                 {

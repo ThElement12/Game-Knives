@@ -23,7 +23,7 @@ public class ControlKniveHit : MonoBehaviour
     public static bool LastHit;
     public static int points;
     public static Estate kniveState;
-    public static int knives;
+    public static int knives, powercount;
     GameObject actualTarget;
     GameObject knivepunto;
     // Start is called before the first frame update
@@ -56,6 +56,10 @@ public class ControlKniveHit : MonoBehaviour
                     knife = GameObject.FindGameObjectWithTag("Knife");
                     if(knife != null)
                      knife.GetComponent<Shoot>().isShooting = true;
+                    if(powercount == 0)
+                    {
+                        HitSomething.pointPLus = 1;
+                    }
                 }
 
                 if (knives == 0 && LastHit)
@@ -117,6 +121,10 @@ public class ControlKniveHit : MonoBehaviour
     public static void GastarAmmo()
     {
         Destroy(KnivesPuntos[knives - 1].gameObject);
+        if(HitSomething.pointPLus > 0)
+        {
+            powercount--;
+        }
         knives--;
     }
 }

@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class GeneradorObstaculos : MonoBehaviour
 {
-    public GameObject obstaculo;
+    public GameObject obstaculo, powerup;
     float tiempoSpawn = 100;
+    int prob;
 
     GameObject Obstaculo;
 
@@ -27,8 +28,13 @@ public class GeneradorObstaculos : MonoBehaviour
         {
             if(tiempoSpawn <= 0)
             {
-             tiempoSpawn = 100;
-             Obstaculo = Instantiate(obstaculo, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + Random.Range(-2.107f,2.108f)), Quaternion.identity);
+                
+                tiempoSpawn = 100;
+                prob = Random.Range(1, 10);
+                if(prob == 5)
+                    Obstaculo = Instantiate(powerup, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + Random.Range(-2.107f, 2.108f)), Quaternion.identity);
+                else
+                    Obstaculo = Instantiate(obstaculo, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + Random.Range(-2.107f,2.108f)), Quaternion.identity);
             }
             else
             {
