@@ -40,6 +40,13 @@ public class ControlKniveHit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!MenuControl.playSound)
+        {
+            AudioManager._Fondo.Stop();
+            
+        }
+        
+
         switch (kniveState)
         {
             case Estate.Playing:
@@ -65,7 +72,9 @@ public class ControlKniveHit : MonoBehaviour
                 }
                 //KnivesTxt.text = "Cuchillos: " + knives.ToString();
                 PointTxt.text = "Puntos: " + points.ToString();
-                if(playername == "joseph" || playername == "ruben")
+                if (playername == "moronta")
+                    NameTxt.text = playername + " sensei";
+                else if (playername == "joseph" || playername == "ruben")
                     NameTxt.text = playername + " -sama";
                 else
                     NameTxt.text = playername;

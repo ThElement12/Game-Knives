@@ -14,7 +14,7 @@ public class MenuControl : MonoBehaviour
     GameObject MainCamera;
    TextMesh Score, Nombre;
 
-    static bool playSound = true;
+    public static bool playSound = true;
     private void Awake()
     {
         

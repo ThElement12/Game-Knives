@@ -505,6 +505,7 @@ GameObject:
   - component: {fileID: 868283116}
   - component: {fileID: 868283115}
   - component: {fileID: 868283113}
+  - component: {fileID: 868283114}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -608,6 +609,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &868283114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868283112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f135a84b0323924ab19b9fee92bc31b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HoverSound: {fileID: 0}
+  ClickSound: {fileID: 0}
+  Fondo: {fileID: 868283113}
 --- !u!102 &868283115
 TextMesh:
   serializedVersion: 3

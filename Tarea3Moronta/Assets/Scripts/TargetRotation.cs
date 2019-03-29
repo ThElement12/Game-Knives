@@ -9,7 +9,7 @@ public class TargetRotation : MonoBehaviour
     int direction;
     int count = 30;
     public bool isDead = false;
-    Animator anim;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,7 @@ public class TargetRotation : MonoBehaviour
         {
             if (count == 0)
             {
-                direction = 1;
+                direction = Random.Range(-1,2)  == 1 ? 1:-1;
                 count = 50;
             }
             else
@@ -35,7 +35,7 @@ public class TargetRotation : MonoBehaviour
         {
             if (count == 0)
             {
-                direction = Random.Range(-1, 2);
+                direction = Random.Range(-1, 2) == 1 ? 1: -1;
                 count = 50;
             }
             else
@@ -47,7 +47,7 @@ public class TargetRotation : MonoBehaviour
         {
             if (count == 0)
             {
-                direction = Random.Range(-1, 2);
+                direction = Random.Range(-1, 2) == 1 ? 1: -1;
                 count = 50;
             }
             else

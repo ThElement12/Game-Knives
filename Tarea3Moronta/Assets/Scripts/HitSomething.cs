@@ -14,7 +14,9 @@ public class HitSomething : MonoBehaviour
         {
             if (other.gameObject.tag == "Knife")
             {
-                GetComponent<AudioSource>().Play();
+                if(MenuControl.playSound)
+                 GetComponent<AudioSource>().Play();
+
                 other.gameObject.GetComponent<Shoot>().isShooting = false;
                 other.gameObject.tag = "KnifeHit";
                 other.gameObject.transform.parent = gameObject.transform;
