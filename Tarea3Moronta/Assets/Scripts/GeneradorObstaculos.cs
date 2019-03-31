@@ -5,7 +5,7 @@ using UnityEngine;
 public class GeneradorObstaculos : MonoBehaviour
 {
     public GameObject obstaculo, powerup;
-    float tiempoSpawn = 100;
+    float tiempoSpawn;
     int prob;
 
     GameObject Obstaculo;

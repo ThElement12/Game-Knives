@@ -58,7 +58,7 @@ public class ControlKniveHit : MonoBehaviour
                      knife.GetComponent<Shoot>().isShooting = true;
                     if(powercount == 0)
                     {
-                        HitSomething.pointPLus = 1;
+                        HitSomething.pointPlus = 1;
                     }
                 }
 
@@ -121,7 +121,7 @@ public class ControlKniveHit : MonoBehaviour
     public static void GastarAmmo()
     {
         Destroy(KnivesPuntos[knives - 1].gameObject);
-        if(HitSomething.pointPLus > 0)
+        if(HitSomething.pointPlus > 0)
         {
             powercount--;
         }

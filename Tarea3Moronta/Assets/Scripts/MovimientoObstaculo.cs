@@ -9,12 +9,6 @@ public class MovimientoObstaculo : MonoBehaviour
 
     bool moviendose = true;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -43,7 +37,7 @@ public class MovimientoObstaculo : MonoBehaviour
         {
             if(other.gameObject.tag == "Knife")
             {
-                HitSomething.pointPLus = 2;
+                HitSomething.pointPlus = 2;
                 ControlKniveHit.powercount += 2;
                 //other.gameObject.GetComponent<Shoot>().isShooting = false;
                 moviendose = false;
@@ -58,7 +52,7 @@ public class MovimientoObstaculo : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    void destruir()
+    void Destruir()
     {
         if (tag == "Obstacle")
         {

@@ -20,11 +20,11 @@ public class CanvasController : MonoBehaviour
     {
         ControlKniveHit.playername = GameObject.Find("NameField").GetComponent<Text>().text;
         GameObject.Find("NameField").GetComponent<Text>().text = "";
-        showCanvas(false);
+        ShowCanvas(false);
         MenuControl.IniciarOpciones(true);
     }
 
-    public void showCanvas(bool isTrue = true)
+    public void ShowCanvas(bool isTrue = true)
     {
         Canvas.SetActive(isTrue);
     }

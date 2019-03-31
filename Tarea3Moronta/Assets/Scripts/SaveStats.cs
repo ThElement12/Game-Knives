@@ -40,7 +40,7 @@ public class SaveStats : MonoBehaviour
         
         if (SceneManager.GetActiveScene().name == "EndKnifeHit" && !Guardado)
         {
-            CrearHighStore();
+            CrearHighScore();
             SaveState();
             Guardado = true;
         }
@@ -92,7 +92,6 @@ public class SaveStats : MonoBehaviour
         catch (FileNotFoundException)
         {
 
-           
         }
         try
         {
@@ -102,13 +101,9 @@ public class SaveStats : MonoBehaviour
                 playersStatsMedio = (List<PlayerStats>)dcSerializer.ReadObject(fstream);
 
             }
-
-
         }
         catch (FileNotFoundException)
-        {
-
-          
+        {     
         }
         try
         {
@@ -120,14 +115,11 @@ public class SaveStats : MonoBehaviour
             }
         }
         catch (FileNotFoundException)
-        {
-
-            
+        {   
         }
         
-       
     }
-    public void CrearHighStore()
+    public void CrearHighScore()
     {
         switch (CurrentGame.Dificultad)
         {
@@ -139,7 +131,7 @@ public class SaveStats : MonoBehaviour
                 {
                     playersStatsFacil.Remove(playersStatsFacil[playersStatsFacil.Count]);
                 }
-                Debug.Log(playersStatsFacil.Count);
+               
                 break;
             case "Medio":
                 playersStatsMedio.Add(CurrentGame);
