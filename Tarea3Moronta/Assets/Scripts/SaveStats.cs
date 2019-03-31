@@ -38,7 +38,7 @@ public class SaveStats : MonoBehaviour
     void Update()
     {
         
-        if (SceneManager.GetActiveScene().name == "EndKnifeHit" && !Guardado)
+        if (SceneManager.GetActiveScene().name == "EndKnifeHit" && !Guardado && CurrentGame.PlayerName != null)
         {
             CrearHighScore();
             SaveState();
@@ -129,7 +129,7 @@ public class SaveStats : MonoBehaviour
 
                 if (playersStatsFacil.Count > 10)
                 {
-                    playersStatsFacil.Remove(playersStatsFacil[playersStatsFacil.Count]);
+                    playersStatsFacil.Remove(playersStatsFacil[playersStatsFacil.Count - 1]);
                 }
                
                 break;
@@ -139,7 +139,7 @@ public class SaveStats : MonoBehaviour
 
                 if (playersStatsMedio.Count > 10)
                 {
-                    playersStatsMedio.Remove(playersStatsMedio[playersStatsMedio.Count]);
+                    playersStatsMedio.Remove(playersStatsMedio[playersStatsMedio.Count - 1]);
                 }
                 break;
 
@@ -148,7 +148,7 @@ public class SaveStats : MonoBehaviour
                 playersStatsDificil = playersStatsDificil.OrderByDescending(o => o.Points).ToList();
                 if (playersStatsDificil.Count > 10)
                 {
-                    playersStatsDificil.Remove(playersStatsDificil[playersStatsDificil.Count]);
+                    playersStatsDificil.Remove(playersStatsDificil[playersStatsDificil.Count - 1]);
                 }
 
               break;

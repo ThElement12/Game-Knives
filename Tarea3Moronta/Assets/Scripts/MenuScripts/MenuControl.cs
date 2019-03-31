@@ -117,6 +117,8 @@ public class MenuControl : MonoBehaviour
                 SceneManager.LoadScene("KnifeHit");
                 SaveStats.Guardado = false;
                 ControlKniveHit.points = 0;
+                ControlKniveHit.powercount = 0;
+                ControlKniveHit.ispowerActive = false;
                 break;
             case "HighScore":
                 SceneManager.LoadScene("Puntajes");

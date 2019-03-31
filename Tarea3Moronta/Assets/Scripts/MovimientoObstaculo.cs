@@ -42,7 +42,7 @@ public class MovimientoObstaculo : MonoBehaviour
             if(other.gameObject.tag == "Knife")
             {
                 HitSomething.pointPlus = 2;
-                ControlKniveHit.powercount = 3;
+                ControlKniveHit.powercount += 2;
                 other.gameObject.GetComponent<Shoot>().isShooting = false;
                 moviendose = false;
                 //gameObject.GetComponent<Animator>().SetBool("IsDead", true);

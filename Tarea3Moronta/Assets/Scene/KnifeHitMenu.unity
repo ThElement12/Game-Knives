@@ -1412,7 +1412,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Dificil
+  m_Text: El Semestre
 --- !u!222 &672650800
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1951,8 +1951,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.8925557, y: 1.2006502, z: 0}
-  m_Center: {x: 2.4462779, y: -0.7764449, z: 0}
+  m_Size: {x: 7.463414, y: 1.2006502, z: 0}
+  m_Center: {x: 3.731707, y: -0.7764449, z: 0}
 --- !u!102 &1068104976
 TextMesh:
   serializedVersion: 3
@@ -2176,8 +2176,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.9885097, y: 1.2006502, z: 0}
-  m_Center: {x: 1.4942548, y: -0.7764449, z: 0}
+  m_Size: {x: 4.886992, y: 1.2006502, z: 0}
+  m_Center: {x: 2.443496, y: -0.7764449, z: 0}
 --- !u!1 &1339022981
 GameObject:
   m_ObjectHideFlags: 0
@@ -2394,8 +2394,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6.4170175, y: 1.3378954, z: 0}
-  m_Center: {x: 3.2085087, y: -0.96248007, z: 0}
+  m_Size: {x: 7.5244656, y: 1.6543102, z: 0}
+  m_Center: {x: 3.7622328, y: -0.80427265, z: 0}
 --- !u!1 &1382948665
 GameObject:
   m_ObjectHideFlags: 0
@@ -2927,7 +2927,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Medio
+  m_Text: Dificil
 --- !u!222 &1871723969
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3266,8 +3266,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.7981043, y: 1.4648314, z: 0}
-  m_Center: {x: 1.8990521, y: -1.025948, z: 0}
+  m_Size: {x: 5.063758, y: 1.6625891, z: 0}
+  m_Center: {x: 2.531879, y: -0.7293105, z: 0}
 --- !u!1 &2111622008
 GameObject:
   m_ObjectHideFlags: 0
