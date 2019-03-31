@@ -9,10 +9,9 @@ public class MenuControl : MonoBehaviour
 {
     const float SCALEFACTOR = 1.2f;
     AudioManager _audioManager;
-    static GameObject menuItems;
-    static GameObject Sonido, Facil, Medio, Dificil;
+    GameObject Sonido, Facil, Medio, Dificil, menuItems;
     GameObject MainCamera;
-   TextMesh Score, Nombre;
+    TextMesh Score, Nombre;
 
     public static bool playSound = true;
     private void Awake()
