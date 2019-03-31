@@ -12,12 +12,14 @@ public class MenuControl : MonoBehaviour
     GameObject Sonido, Facil, Medio, Dificil;
     static GameObject menuItems;
     GameObject MainCamera;
-    TextMesh Score, Nombre;
+    TextMesh Score, Nombre, PuntajeFinal;
+
 
     public static bool playSound = true;
     private void Awake()
     {
         
+       
       _audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         menuItems = GameObject.Find("MenuItems");
         Sonido = GameObject.Find("Sonido");
@@ -30,6 +32,10 @@ public class MenuControl : MonoBehaviour
             Score = GameObject.Find("Puntajes").GetComponent<TextMesh>();
             Nombre = GameObject.Find("Nombres").GetComponent<TextMesh>();
 
+        }
+        else if(SceneManager.GetActiveScene().name == "EndKnifeHit")
+        {
+            PuntajeFinal = GameObject.Find("Puntaje").GetComponent<TextMesh>();
         }
             
         
@@ -46,6 +52,10 @@ public class MenuControl : MonoBehaviour
                playSound = false;
 
             SaveStats.Guardado = false;
+        }
+        if(SceneManager.GetActiveScene().name == "EndKnifeHit")
+        {
+            PuntajeFinal.text = "Puntaje: " + ControlKniveHit.points.ToString();
         }
         
 
