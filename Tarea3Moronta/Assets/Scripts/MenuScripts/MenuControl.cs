@@ -41,7 +41,15 @@ public class MenuControl : MonoBehaviour
         
         
     }
-  
+    private void Start()
+    {
+        if (SceneManager.GetActiveScene().name == "EndKnifeHit")
+        {
+            PuntajeFinal.text = "Puntaje: " + ControlKniveHit.points.ToString();
+        }
+
+    }
+
     private void Update()
     {
         if(SceneManager.GetActiveScene().name == "KnifeHitMenu")
@@ -53,10 +61,7 @@ public class MenuControl : MonoBehaviour
 
             SaveStats.Guardado = false;
         }
-        if(SceneManager.GetActiveScene().name == "EndKnifeHit")
-        {
-            PuntajeFinal.text = "Puntaje: " + ControlKniveHit.points.ToString();
-        }
+        
         
 
         if (!playSound)

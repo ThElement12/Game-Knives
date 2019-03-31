@@ -9,6 +9,8 @@ public class MovimientoObstaculo : MonoBehaviour
 
     bool moviendose = true;
 
+    // Start is called before the first frame update
+   
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -52,7 +54,7 @@ public class MovimientoObstaculo : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    void Destruir()
+    void destruir()
     {
         if (tag == "Obstacle")
         {

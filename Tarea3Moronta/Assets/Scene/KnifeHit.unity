@@ -403,6 +403,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -493,6 +494,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af1f59ed4a7359449697b0402dfbb44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pajarito: {fileID: 1528636170179699545, guid: 27597436245d84344b64b7ff48a14365,
+    type: 3}
 --- !u!1 &868283112
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,7 +538,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2dabedf9c8a1a334e95bc3a09b545773, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 45e490e4342eff942822a99503fdde37, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
@@ -947,12 +962,12 @@ PrefabInstance:
     - target: {fileID: 5432799317358242242, guid: dd445f3fba03a2c4e9666b68fb103d0d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.07
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 5432799317358242242, guid: dd445f3fba03a2c4e9666b68fb103d0d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.79
+      value: -0.38
       objectReference: {fileID: 0}
     - target: {fileID: 5432799317358242242, guid: dd445f3fba03a2c4e9666b68fb103d0d,
         type: 3}
