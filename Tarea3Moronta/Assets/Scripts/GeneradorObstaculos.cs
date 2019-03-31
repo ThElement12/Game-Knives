@@ -31,7 +31,7 @@ public class GeneradorObstaculos : MonoBehaviour
             {
                 
                 tiempoSpawn = 100;
-                prob = 5;//Random.Range(1, 10);
+                prob = Random.Range(1, 10);
                 if(prob == 5)
                     Obstaculo = Instantiate(powerup, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + Random.Range(-2.107f, 2.108f)), Quaternion.identity);
                 else
