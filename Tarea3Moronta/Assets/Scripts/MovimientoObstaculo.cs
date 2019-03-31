@@ -6,6 +6,8 @@ public class MovimientoObstaculo : MonoBehaviour
 {
     Vector3 aceleracion = Vector3.zero;
     Vector3 velocidad = Vector3.zero;
+    //public GameObject Knive;
+    GameObject Knive;
 
     bool moviendose = true;
 
@@ -23,7 +25,7 @@ public class MovimientoObstaculo : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (tag == "Obstacle")
+        if (gameObject.tag == "Obstacle")
         {
 
             if (other.gameObject.tag == "Knife")
@@ -35,17 +37,32 @@ public class MovimientoObstaculo : MonoBehaviour
                 Invoke("destruir", 0.5f);
             }
         }
-        if(tag == "PowerUp")
+        if(gameObject.tag == "PowerUp")
         {
             if(other.gameObject.tag == "Knife")
             {
                 HitSomething.pointPlus = 2;
-                ControlKniveHit.powercount += 2;
-                //other.gameObject.GetComponent<Shoot>().isShooting = false;
+                ControlKniveHit.powercount = 3;
+                other.gameObject.GetComponent<Shoot>().isShooting = false;
                 moviendose = false;
                 //gameObject.GetComponent<Animator>().SetBool("IsDead", true);
+                //Destroy(other.gameObject);
+                Destroy(gameObject);
                 Destroy(other.gameObject);
-            //Invoke("destruir", 0.5f);
+                //ControlKniveHit.knives--;
+                ControlKniveHit.GastarAmmo();
+                if (ControlKniveHit.knives > 0)
+                {
+                    Knive = GameObject.FindGameObjectWithTag("Target").GetComponent<HitSomething>().Knive;
+                    Instantiate(Knive);
+                }
+                else if (ControlKniveHit.knives == 0)
+                {
+                    ControlKniveHit.LastHit = true;
+                }
+                ControlKniveHit.ispowerActive = true;
+
+                //Invoke("destruir", 0.5f);
             }
         }
 
@@ -56,7 +73,7 @@ public class MovimientoObstaculo : MonoBehaviour
     }
     void destruir()
     {
-        if (tag == "Obstacle")
+        if (gameObject.tag == "Obstacle")
         {
             Destroy(GameObject.FindGameObjectWithTag("Target"));
             ControlKniveHit.kniveState = ControlKniveHit.Estate.End;

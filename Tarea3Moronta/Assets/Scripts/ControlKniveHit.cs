@@ -5,7 +5,7 @@ public class ControlKniveHit : MonoBehaviour
 {
     GameObject knife;
     public GameObject Target, newKnife;
-    public TextMesh PointTxt, NameTxt;
+    public TextMesh PointTxt, NameTxt, powerUpTxt;
     //public TextMesh KnivesTxt;
     public GameObject _KnivePunto;
     public static string playername;
@@ -24,12 +24,13 @@ public class ControlKniveHit : MonoBehaviour
     public static int points;
     public static Estate kniveState;
     public static int knives, powercount;
+    public static bool ispowerActive;
     GameObject actualTarget;
     GameObject knivepunto;
     // Start is called before the first frame update
     void Start()
     {
-        
+        //powerUpTxt.SetActive(false);
         points = 0;
         knives = 7;
         cargarKunaiPuntos();        
@@ -69,6 +70,7 @@ public class ControlKniveHit : MonoBehaviour
                     actualTarget.GetComponent<TargetRotation>().isDead = true;
                     actualTarget.GetComponent<Animator>().SetBool("isDie", actualTarget.GetComponent<TargetRotation>().isDead);
                     destruirKunai();
+                    
                     Destroy(actualTarget, 1.5f);
                     Invoke("InstantiateNew", 1.5f);
                     knives = 7;
@@ -83,6 +85,14 @@ public class ControlKniveHit : MonoBehaviour
                 else
                     NameTxt.text = playername;
 
+                if (ispowerActive)
+                {
+                    powerUpTxt.text = "Kunais x2: " + powercount.ToString();  
+                }
+                else if (!ispowerActive)
+                {
+                    powerUpTxt.text = "";
+                }
                 break;
             case Estate.End:
                 SceneManager.LoadScene("EndKnifeHit");
@@ -121,10 +131,15 @@ public class ControlKniveHit : MonoBehaviour
     public static void GastarAmmo()
     {
         Destroy(KnivesPuntos[knives - 1].gameObject);
-        if(HitSomething.pointPlus > 0)
+        if(powercount > 0)
         {
             powercount--;
         }
+        else if(powercount == 0)
+        {
+            HitSomething.pointPlus = 1;
+            ispowerActive = false;
+        } 
         knives--;
     }
 }
