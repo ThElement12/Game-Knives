@@ -13,16 +13,16 @@ public class Parallax : MonoBehaviour
     void Start()
     {
 
-        count = 200;
+        count = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
         if(count == 0)
-        {
-            Pajarito = Instantiate(pajarito, new Vector3(-14, Random.Range(2.2f, 5.2f), 1), Quaternion.identity);
-            tamano = Random.Range(0.2f, 1.1f);
+        {   tamano = Random.Range(0.2f, 1.1f);
+            Pajarito = Instantiate(pajarito, new Vector3(-14, Random.Range(2.2f, 5.2f)), Quaternion.identity);
+
             Pajarito.transform.localScale = new Vector3(tamano, tamano);
             count = 200;
         }

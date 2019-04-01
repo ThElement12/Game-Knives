@@ -52,7 +52,7 @@ public class ControlKniveHit : MonoBehaviour
         {
             case Estate.Playing:
                 
-                if (Input.GetKeyDown(KeyCode.Space) && knives > 0 )
+                if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0)) && knives > 0 )
                 {
                     knife = GameObject.FindGameObjectWithTag("Knife");
                     if(knife != null)
