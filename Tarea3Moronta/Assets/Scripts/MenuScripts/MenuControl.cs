@@ -98,7 +98,7 @@ public class MenuControl : MonoBehaviour
         { 
             case "Play":
                 SeleccionDificultad();
-                MainCamera.GetComponent<CanvasController>().showCanvas(true);
+                MainCamera.GetComponent<CanvasController>().showCanvas(false);
                 SceneManager.LoadScene("KnifeHit");
                 break;
             case "Options":

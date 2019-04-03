@@ -40,6 +40,7 @@ public class SaveStats : MonoBehaviour
         
         if (SceneManager.GetActiveScene().name == "EndKnifeHit" && !Guardado && CurrentGame.PlayerName != null)
         {
+            
             CrearHighScore();
             SaveState();
             Guardado = true;

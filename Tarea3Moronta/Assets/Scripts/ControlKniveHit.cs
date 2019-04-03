@@ -96,7 +96,7 @@ public class ControlKniveHit : MonoBehaviour
                 break;
             case Estate.End:
                 SceneManager.LoadScene("EndKnifeHit");
-                //SaveStats.SaveState();
+                
                 break;
         }
     }
